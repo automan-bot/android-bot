@@ -54,7 +54,7 @@ npm i android-bot -s
 
 - 浏览器环境下由于不支持 udp，需要主动创建设备
 
-```
+```javascript
 //引入库
 import { BrowserWebSocket, Device } from "android-bot";
 
@@ -73,22 +73,22 @@ async function main() {
   let iuiObjectXML = await device.screenXml();
   //手势滑动（左滑）
   await device.gesture({
-      duration: 200,
-      points: [
-        { x: 168, y: 558 },
-        { x: 172, y: 562 },
-        { x: 276, y: 562 },
-        { x: 306, y: 560 },
-        { x: 348, y: 552 },
-        { x: 390, y: 548 },
-        { x: 442, y: 540 },
-        { x: 470, y: 540 },
-        { x: 500, y: 538 },
-        { x: 520, y: 538 },
-        { x: 548, y: 538 },
-        { x: 566, y: 538 },
-        { x: 596, y: 540 },
-      ],
+    duration: 200,
+    points: [
+      { x: 168, y: 558 },
+      { x: 172, y: 562 },
+      { x: 276, y: 562 },
+      { x: 306, y: 560 },
+      { x: 348, y: 552 },
+      { x: 390, y: 548 },
+      { x: 442, y: 540 },
+      { x: 470, y: 540 },
+      { x: 500, y: 538 },
+      { x: 520, y: 538 },
+      { x: 548, y: 538 },
+      { x: 566, y: 538 },
+      { x: 596, y: 540 },
+    ],
   });
   //....
 }
@@ -101,7 +101,7 @@ main();
 - Node 环境下，可以使用 AdbDevice 扫描局域网内的设备
 
 ```javascript
-import { AdbDevice, NodeWebSocket, Device } from "../src/androidbot";
+import { AdbDevice, NodeWebSocket, Device } from "android-bot";
 import FormData from "form-data";
 import fs from "fs";
 async function main() {
@@ -281,7 +281,7 @@ import { BrowserWebSocket, Device } from "android-bot";
 ### 获取代码
 
 ```shell
-git clone https://github.com/tntok/android-bot.git
+git clone https://github.com/automan-bot/android-bot.git
 npm i
 ```
 

@@ -100,7 +100,7 @@ main();
 - In a Node.js environment, you can use AdbDevice to scan devices on the local network.
 
 ```javascript
-import { AdbDevice, NodeWebSocket, Device } from "../src/androidbot";
+import { AdbDevice, NodeWebSocket, Device } from "android-bot";
 import FormData from "form-data";
 import fs from "fs";
 
