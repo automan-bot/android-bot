@@ -177,6 +177,8 @@ async function main() {
 main();
 ```
 
+### [More Examples](https://github.com/automan-bot/android-bot/tree/master/demo)
+
 ## Core Classes
 
 ### Device
