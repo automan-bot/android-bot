@@ -177,7 +177,7 @@ async function main() {
 main();
 ```
 
-## 核心类
+## Core Classes
 
 ### Device
 
