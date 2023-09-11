@@ -1,8 +1,18 @@
 {
-  "name": "androidbot",
+  "name": "android-bot",
   "version": "1.8.8",
-  "description": "",
-  "keywords": [],
+  "description": "android-bot 是基于 AutoBot 得 JavaScript库，局域网内无线投屏/实时控制,按键模拟，录制屏幕，截屏，布局分析，文件管理，应用管理，通讯录管理；比scrcpy，adb-kit更 稳定简单易用;android-bot is built upon the AutoBot JavaScript library and provides features such as wireless screen casting and real-time control within a local network, key simulation, screen recording, screenshot capture, layout analysis, file management, application management, and address book management. It offers greater stability and simplicity compared to scrcpy and adb-kit.",
+  "keywords": [
+    "android-bot",
+    "AutoBot",
+    "autobot",
+    "android-api",
+    "scrcpy",
+    "adbkit",
+    "remote-droid",
+    "node-scrcpy",
+    "scrcpy-client"
+  ],
   "clientVersion": "12403",
   "main": "dist/androidbot.umd.js",
   "browser": "dist/androidbot.browser.js",
@@ -10,7 +20,7 @@
   "files": [
     "dist"
   ],
-  "author": "tntok <autojs@126.com>",
+  "author": "AutoMan <autojs@126.com>",
   "scripts": {
     "demo_browser": "parcel demo/index.html",
     "demo_node": "cross-env __CLIENT_VERSION__=12403 esno demo/test.ts",
