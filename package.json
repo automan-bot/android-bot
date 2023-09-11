@@ -1,7 +1,7 @@
 {
   "name": "android-bot",
-  "version": "1.8.8",
-  "description": "android-bot 是基于 AutoBot 得 JavaScript库，局域网内无线投屏/实时控制,按键模拟，录制屏幕，截屏，布局分析，文件管理，应用管理，通讯录管理；比scrcpy，adb-kit更 稳定简单易用;android-bot is built upon the AutoBot JavaScript library and provides features such as wireless screen casting and real-time control within a local network, key simulation, screen recording, screenshot capture, layout analysis, file management, application management, and address book management. It offers greater stability and simplicity compared to scrcpy and adb-kit.",
+  "version": "1.8.9",
+  "description": "Android-bot is built on the AutoBot JavaScript library and provides features such as wireless screen casting and real-time control within a local network, key simulation, screen recording, screenshot capture, layout analysis, file management, application management, and address book management. It offers greater stability, simplicity, and ease of use compared to scrcpy and adb-kit.  android-bot 是基于 AutoBot 得 JavaScript库，局域网内无线投屏/实时控制,按键模拟，录制屏幕，截屏，布局分析，文件管理，应用管理，通讯录管理；比scrcpy，adb-kit更 稳定简单易用",
   "keywords": [
     "android-bot",
     "AutoBot",
@@ -13,6 +13,10 @@
     "node-scrcpy",
     "scrcpy-client"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/automan-bot/android-bot.git"
+  },
   "clientVersion": "12403",
   "main": "dist/androidbot.umd.js",
   "browser": "dist/androidbot.browser.js",
@@ -57,10 +61,6 @@
     "rollup-plugin-obfuscator": "^0.2.2",
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.8.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": ""
   },
   "license": "MIT",
   "dependencies": {

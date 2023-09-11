@@ -1,6 +1,6 @@
 # 翻译
 
-[中文](./README-zh-CN.md) | [英文-GPT](./README.md)
+[中文](https://github.com/automan-bot/android-bot/blob/master/README-zh-CN.md) | [英文-GPT](./README.md)
 
 # android-bot
 
