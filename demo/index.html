@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./browser.js" type="module"></script>
+    <style>
+        .screen{
+            background-color: rgba(0,0,0,0.1);
+            width: 360px;
+            height: 720px;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+        .screen.isLandscape{
+            width: 720px;
+            height: 360px;
+        }
+        #image{
+            user-select: none;
+            -webkit-user-drag: none;
+            height: 720px;
+        }
+        .input_text{
+            position: absolute;
+            top:20;
+            left: 20;
+            z-index: -1;
+            /*display: none;*/
+        }
+    </style>
+</head>
+<body>
+<canvas class="screen" id="screen"></canvas>
+<input  class="input_text" type="text" id="inputText"/>
+<button onclick="connect()">连接</button>
+<button onclick="closeConnect()">断开</button>
+</body>
+</html>
