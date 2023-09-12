@@ -169,6 +169,8 @@ export class SubPackageInfo {
   public splitRevisionCodes: number[];
   public versionCode: number;
   public versionName: string;
+  public label: string;
+  public icon: string;
 }
 export class PackageInfo {
   public applicationInfo: MyApplicationInfo;
