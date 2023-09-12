@@ -235,3 +235,15 @@ export interface ActiveInfo {
   disabled: boolean;
   validate: boolean;
 }
+
+export class ShortPackageInfo {
+  public packageName: string;
+  public label: string;
+  public icon: string;
+  public versionCode: number;
+  public versionName: string;
+  public minSdkVersion: string;
+  public targetSdkVersion: number;
+  public firstInstallTime: number;
+  public lastUpdateTime: number;
+}

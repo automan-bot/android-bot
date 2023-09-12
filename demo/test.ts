@@ -18,6 +18,8 @@ async function main() {
           `宽度：${width},高度：${height},是否横屏:${isLandscape},方向:${rotation}`
       );
     });
+    const packages = await device.getAllPackage();
+    console.log(packages);
     /* mScreenControl.addScreenChangeListener(function (img) {
       console.log(img);
     });

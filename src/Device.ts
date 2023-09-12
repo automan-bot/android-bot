@@ -12,6 +12,7 @@ import {
   IUIObject,
   ScreenInfo,
   ScreenRotation,
+  ShortPackageInfo,
   TopActivityInfo,
 } from "./Model/GlobalModel";
 import { ScreenControl } from "./ScreenControl";
@@ -175,7 +176,7 @@ class Device {
     let axiosResponse = await this.serverApi.clearPackage({ packageName });
     return axiosResponse.data.data == "1";
   }
-  async getAllPackage(): Promise<string[]> {
+  async getAllPackage(): Promise<ShortPackageInfo[]> {
     let axiosResponse = await this.serverApi.getAllPackage(null);
     return axiosResponse.data.data;
   }

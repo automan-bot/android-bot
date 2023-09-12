@@ -26,6 +26,7 @@ import {
   FileItem,
   ActiveInfo,
   ErrListener,
+  ShortPackageInfo,
 } from "./Model/GlobalModel";
 
 import { IWebSocket } from "./interface/IWebSocket";
@@ -81,4 +82,5 @@ export {
   MyFeatureInfo,
   SubPackageInfo,
   PackageInfo,
+  ShortPackageInfo,
 };

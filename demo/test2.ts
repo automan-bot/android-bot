@@ -1,7 +1,7 @@
 import { NotificationChangeCallback } from "./../src/Model/GlobalModel";
 import { Device, NodeWebSocket } from "../src/androidbot";
 async function main() {
-  const device = new Device("192.168.7.119:18080");
+  const device = new Device("192.168.124.11:18080");
   device.setWebSocketClient(new NodeWebSocket());
   device.mScreenControl.addScreenChangeListener(function (screenImg) {
     console.log("接收到新的屏幕图像：", screenImg);
