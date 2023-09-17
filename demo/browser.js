@@ -54,7 +54,7 @@ function connect() {
     let imgHeight = domImg.clientHeight;
     let x1 = e.offsetX > imgWidth ? imgWidth : e.offsetX;
     let y1 = e.offsetY > imgHeight ? imgHeight : e.offsetY;
-    /* let rX1 = screenWidth * (x1 / imgWidth);
+    /*     let rX1 = screenWidth * (x1 / imgWidth);
     let rY1 = screenHeight * (y1 / imgHeight);
     rX1 = rX1 < 0 ? 0 : rX1;
     rY1 = rY1 < 0 ? 0 : rY1;
@@ -96,7 +96,7 @@ function connect() {
       canvas.classList.remove("isLandscape");
     }
   });
-  mScreenControl.startScreenStreamByPassive(1.0, 50, 50);
+  mScreenControl.startScreenStreamByPassive(0.6, 50, 200);
 
   inputText.addEventListener("compositionend", function (event) {
     mScreenControl.sendInputText(event.data);
@@ -152,7 +152,7 @@ function connect() {
   };
   const handleMove2 = throttle(handleMove, 5);
 
-  canvas.addEventListener("mousemove", handleMove2);
+  canvas.addEventListener("mousemove", handleMove);
 
   canvas.addEventListener("mouseup", function (e) {
     isMouseDown = false;

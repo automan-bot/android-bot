@@ -109,6 +109,7 @@ export class ScreenControl
     });
     this.isStartScreenStream = false;
     this.mCurrentState = ScreenState.STREAM_TYPE_STOP;
+    this.isPassiveReceive = true;
     await timeout(this.mFps + 200);
   }
   async startScreenStream(scale = 1.0, quality = 50, fps = 50) {
