@@ -44,7 +44,7 @@ function connect() {
   ctx = canvas.getContext("2d");
   canvas.width = 720;
   canvas.height = 1280;
-  device = new Device("192.168.7.119:18080");
+  device = new Device("192.168.124.4:18080");
   let screenWidth;
   let screenHeight;
   function handleEvent(e) {
@@ -54,13 +54,15 @@ function connect() {
     let imgHeight = domImg.clientHeight;
     let x1 = e.offsetX > imgWidth ? imgWidth : e.offsetX;
     let y1 = e.offsetY > imgHeight ? imgHeight : e.offsetY;
-    let rX1 = screenWidth * (x1 / imgWidth);
+    /* let rX1 = screenWidth * (x1 / imgWidth);
     let rY1 = screenHeight * (y1 / imgHeight);
     rX1 = rX1 < 0 ? 0 : rX1;
     rY1 = rY1 < 0 ? 0 : rY1;
     if (rX1 == 0 || rY1 == 0) return;
     let x2 = parseInt(rX1);
-    let y2 = parseInt(rY1);
+    let y2 = parseInt(rY1); */
+    let x2 = x1 / imgWidth;
+    let y2 = y1 / imgHeight;
     return { x: x2, y: y2 };
   }
 
