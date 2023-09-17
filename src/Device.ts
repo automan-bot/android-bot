@@ -242,6 +242,35 @@ class Device {
     });
     return axiosResponse.data.data == "1";
   }
+  async click(x: number, y: number): Promise<boolean> {
+    let axiosResponse = await this.serverApi.click({ x, y });
+    return axiosResponse.data.data == "1";
+  }
+  async longClick(x: number, y: number): Promise<boolean> {
+    let axiosResponse = await this.serverApi.longClick({ x, y });
+    return axiosResponse.data.data == "1";
+  }
+  async press(x: number, y: number, duration: number): Promise<boolean> {
+    let axiosResponse = await this.serverApi.press({ x, y, duration });
+    return axiosResponse.data.data == "1";
+  }
+
+  async swipe(
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+    duration: number
+  ): Promise<boolean> {
+    let axiosResponse = await this.serverApi.swipe({
+      x1,
+      y1,
+      x2,
+      y2,
+      duration,
+    });
+    return axiosResponse.data.data == "1";
+  }
 
   async gestures(gestures: Array<IGesture>): Promise<boolean> {
     let axiosResponse = await this.serverApi.gestures(gestures);

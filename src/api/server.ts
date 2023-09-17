@@ -47,6 +47,10 @@ const urlMap = {
   inputChar: "/inputChar",
   pressKeyCode: "/pressKeyCode",
   insertContact: "/insertContact",
+  click: "/click",
+  longClick: "/longClick",
+  press: "/press",
+  swipe: "/swipe",
   gestures: "/gestures",
   gesture: "/gesture",
   emptyDir: "/emptyDir",
@@ -402,6 +406,46 @@ class ServerApi {
   insertContact(para) {
     return this._request({
       url: this.urlMap["insertContact"],
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+      method: "post",
+      data: para,
+    });
+  }
+  click(para) {
+    return this._request({
+      url: this.urlMap["click"],
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+      method: "post",
+      data: para,
+    });
+  }
+  longClick(para) {
+    return this._request({
+      url: this.urlMap["longClick"],
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+      method: "post",
+      data: para,
+    });
+  }
+  press(para) {
+    return this._request({
+      url: this.urlMap["press"],
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+      method: "post",
+      data: para,
+    });
+  }
+  swipe(para) {
+    return this._request({
+      url: this.urlMap["swipe"],
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
       },
