@@ -485,7 +485,7 @@ class ServerApi {
   }
   delFile(para) {
     return this._request({
-      url: this.urlMap["emptyDir"],
+      url: this.urlMap["delFile"],
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
       },
