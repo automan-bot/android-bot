@@ -100,13 +100,20 @@ async function isInstallServer(deviceId: string) {
 }
 
 // 判断autojs-server是否安装
-async function activeDevice(deviceId: string) {
-  const mingling = `shell "nohup app_process -Djava.class.path=/data/local/tmp/autobot-server /data/local/tmp cn.tntok.autobot.OooOO0o > /dev/null 2>&1 &"`;
+async function activeAutoBotServer(deviceId: string) {
+  const mingling = `shell "nohup app_process -Djava.class.path=/data/local/tmp/autobot-server.jar /data/local/tmp top.tntok.autobot.OooOO0o > /dev/null 2>&1 &"`;
   const { stderr } = await _execAdbShell(deviceId, mingling, false);
   if (stderr) console.error(stderr);
   return !!stderr;
 }
 
+// 判断autojs-server是否安装
+async function activeAdbServer(deviceId: string) {
+  const mingling = `tcpip 5555`;
+  const { stderr } = await _execAdbShell(deviceId, mingling, false);
+  if (stderr) console.error(stderr);
+  return !!stderr;
+}
 // 判断autojs-server是否安装
 async function forward2PC(
   deviceId: string,
@@ -158,7 +165,8 @@ export {
   getForwardInfoByDeviceId,
   forward2PC,
   getPort,
-  activeDevice,
+  activeAutoBotServer,
+  activeAdbServer,
   isInstallServer,
   getDevicesList,
 };

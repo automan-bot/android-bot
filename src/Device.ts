@@ -20,13 +20,16 @@ import { IWebSocket } from "./interface/IWebSocket";
 import { PackageInfo } from "./Model/PackageInfo";
 
 class Device {
-  url: string;
+  public url: string;
+  public deviceId: String;
+  public displayName: string;
   private serverApi: ServerApi;
   public mScreenControl: ScreenControl;
   constructor(url: string, isSsl: boolean = false) {
     this.url = url;
     this.serverApi = new ServerApi(url, isSsl);
     this.mScreenControl = new ScreenControl(url, isSsl);
+    this.init();
   }
   private mErrorListener: ErrListener;
   addErrorListener(listener: ErrListener) {
@@ -38,7 +41,10 @@ class Device {
   setWebSocketClient(iWebSocket: IWebSocket) {
     this.mScreenControl.setWebSocktClient(iWebSocket);
   }
-
+  async init() {
+    this.deviceId = await this.getDeviceId();
+    this.displayName = await this.getDisplayName();
+  }
   async hello(): Promise<boolean> {
     try {
       let axiosResponse = await this.serverApi.hello(null);

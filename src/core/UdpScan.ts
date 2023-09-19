@@ -94,4 +94,10 @@ export class UdpScan {
     this.clients = uniqueArray;
     return this.clients;
   }
+
+  public release() {
+    if (UdpScan.server != null) {
+      UdpScan.server.close();
+    }
+  }
 }
