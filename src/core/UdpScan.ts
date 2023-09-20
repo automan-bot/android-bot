@@ -19,6 +19,7 @@ export class UdpScan {
     if (UdpScan.server != null) {
       return;
     }
+    let that = this;
     UdpScan.port = await getPort(null);
     const server = dgram.createSocket("udp4");
     server.on("error", (err) => {
@@ -31,9 +32,8 @@ export class UdpScan {
       console.log(`UDP server listening on ${address.address}:${address.port}`);
       UdpScan.server = server;
     });
-
     server.on("message", (message, remote) => {
-      this.clients.push({
+      that.clients.push({
         address: remote.address,
         port: remote.port,
       });
