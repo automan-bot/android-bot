@@ -16,22 +16,14 @@ import { getNetworkInterface } from "./utils/netUtils"; */
 class AdbDevice {
   adbId: string;
   url: string = "";
-  private static scanServer: UdpScan;
   constructor(adbId: string) {
     if (!adbId) {
       throw new Error("设备ID不能为空");
     }
     this.adbId = adbId;
   }
-  private static initScanServer() {
-    if (!AdbDevice.scanServer) {
-      AdbDevice.scanServer = new UdpScan();
-    }
-    return AdbDevice.scanServer;
-  }
   static async listWifiDevices(scanCount = 3): Promise<Array<Device>> {
-    const scanServer = AdbDevice.initScanServer();
-    const clients = await scanServer.scanServer(scanCount);
+    const clients = await UdpScan.scanServer(scanCount);
     const devices = clients.map((client) => {
       return new Device(`${client.address}:${client.port}`);
     });

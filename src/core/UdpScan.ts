@@ -11,17 +11,15 @@ interface IClient {
 export class UdpScan {
   static server: dgram.Socket = null;
   static port: number;
-  clients: IClient[] = [];
-  constructor() {
-    this.createScanServer();
-  }
-  private async createScanServer() {
+  static clients: IClient[] = [];
+  private constructor() {}
+  private static async createScanServer() {
     if (UdpScan.server != null) {
       return;
     }
-    let that = this;
     UdpScan.port = await getPort(null);
     const server = dgram.createSocket("udp4");
+    UdpScan.server = server;
     server.on("error", (err) => {
       console.error(`server error:\n${err.stack}`);
       UdpScan.server = null;
@@ -30,10 +28,9 @@ export class UdpScan {
     server.on("listening", () => {
       const address = server.address();
       console.log(`UDP server listening on ${address.address}:${address.port}`);
-      UdpScan.server = server;
     });
     server.on("message", (message, remote) => {
-      that.clients.push({
+      UdpScan.clients.push({
         address: remote.address,
         port: remote.port,
       });
@@ -43,7 +40,7 @@ export class UdpScan {
     });
     server.bind(UdpScan.port);
   }
-  private async waitForInitServer(waitSecond = 5) {
+  private static async waitForInitServer(waitSecond = 5) {
     let waitTime = waitSecond * 1000;
     let i = 0;
     while (true) {
@@ -57,8 +54,7 @@ export class UdpScan {
       throw new Error("create server timeout");
     }
   }
-  private async sendBroadcast() {
-    await this.waitForInitServer();
+  private static async sendBroadcast() {
     let ips = getNetworkInterface();
     const message = Buffer.from("Hello, clients!");
     for (let ip of ips) {
@@ -78,24 +74,26 @@ export class UdpScan {
       );
     }
   }
-  public async scanServer(scanCount: number = 3) {
-    this.clients = [];
+  public static async scanServer(scanCount: number = 3) {
+    UdpScan.createScanServer();
+    await UdpScan.waitForInitServer();
+    UdpScan.clients = [];
     for (let i = 0; i < scanCount; i++) {
-      await this.sendBroadcast();
+      await UdpScan.sendBroadcast();
       await timeout(3000);
     }
-    const uniqueArray = this.clients.filter(
+    const uniqueArray = UdpScan.clients.filter(
       (item, index, self) =>
         index ===
         self.findIndex(
           (t) => t.address === item.address && t.port === item.port
         )
     );
-    this.clients = uniqueArray;
-    return this.clients;
+    UdpScan.clients = uniqueArray;
+    return UdpScan.clients;
   }
 
-  public release() {
+  public static release() {
     if (UdpScan.server != null) {
       UdpScan.server.close();
     }
