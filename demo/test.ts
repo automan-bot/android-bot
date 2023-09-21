@@ -1,4 +1,4 @@
-import { AdbDevice, NodeWebSocket } from "../";
+import { AdbDevice, NodeWebSocket } from "../src/androidbot";
 import FormData from "form-data";
 import fs from "fs";
 async function main() {
