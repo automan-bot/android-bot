@@ -206,6 +206,10 @@ class Device {
     let axiosResponse = await this.serverApi.endCall(null);
     return axiosResponse.data.data == "1";
   }
+  async stopAllScript(): Promise<boolean> {
+    let axiosResponse = await this.serverApi.stopAllScript(null);
+    return axiosResponse.data.data == "1";
+  }
 
   async upload(formData: FormData | any, config): Promise<string> {
     let axiosResponse = await this.serverApi.upload(formData, config);
@@ -317,6 +321,22 @@ class Device {
     let axiosResponse = await this.serverApi.playMusic({ value: musicUrl });
     return axiosResponse.data.data == "1";
   }
+
+  async execScript(
+    script: string,
+    delay: number = 0,
+    interval: number = 0,
+    loopTimes: number = 1
+  ): Promise<boolean> {
+    let axiosResponse = await this.serverApi.execScript({
+      script,
+      delay,
+      interval,
+      loopTimes,
+    });
+    return axiosResponse.data.data == "1";
+  }
+
   destory() {
     try {
       if (this.mScreenControl) {

@@ -38,6 +38,7 @@ const urlMap = {
   cancelAllNotifications: "/cancelAllNotifications",
   callPhone: "/callPhone",
   endCall: "/endCall",
+  stopAllScript: "/stopAllScript",
   //post mutiparform
   upload: "/upload",
   //post
@@ -59,6 +60,7 @@ const urlMap = {
   listFile: "/listFile",
   setDisplayName: "/setDisplayName",
   playMusic: "/playMusic",
+  execScript: "/execScript",
 };
 class ServerApi {
   private baseUrl: string;
@@ -338,7 +340,13 @@ class ServerApi {
       params: para,
     });
   }
-
+  stopAllScript(para = null) {
+    return this._request({
+      url: this.urlMap["stopAllScript"],
+      method: "get",
+      params: para,
+    });
+  }
   //上传文件
   upload(para, config = {}) {
     return this._request({
@@ -526,6 +534,16 @@ class ServerApi {
   playMusic(para) {
     return this._request({
       url: this.urlMap["playMusic"],
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+      method: "post",
+      data: para,
+    });
+  }
+  execScript(para = null) {
+    return this._request({
+      url: this.urlMap["execScript"],
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
       },
