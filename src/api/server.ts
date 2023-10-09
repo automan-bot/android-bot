@@ -20,6 +20,7 @@ const urlMap = {
   startRecoreScreen: "/startRecoreScreen",
   stopRecoreScreen: "/stopRecoreScreen",
   turnScreenOff: "/turnScreenOff",
+  turnScreenOn: "/turnScreenOn",
   exit: "/exit",
   checkNotification: "/checkNotification",
   getIp: "/getIp",
@@ -207,6 +208,13 @@ class ServerApi {
   turnScreenOff(para = null) {
     return this._request({
       url: this.urlMap["turnScreenOff"],
+      method: "get",
+      params: para,
+    });
+  }
+  turnScreenOn(para = null) {
+    return this._request({
+      url: this.urlMap["turnScreenOn"],
       method: "get",
       params: para,
     });

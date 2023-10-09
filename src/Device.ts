@@ -129,6 +129,10 @@ class Device {
     let axiosResponse = await this.serverApi.turnScreenOff();
     return axiosResponse.data.data == "1";
   }
+  async turnScreenOn(): Promise<boolean> {
+    let axiosResponse = await this.serverApi.turnScreenOn();
+    return axiosResponse.data.data == "1";
+  }
   async exit() {
     try {
       await this.serverApi.exit(null);
