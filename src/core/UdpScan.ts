@@ -12,6 +12,7 @@ export class UdpScan {
   static server: dgram.Socket = null;
   static port: number;
   static clients: IClient[] = [];
+  static mOnClientDiscoverLinstener: (client: IClient) => void;
   private constructor() {}
   private static async createScanServer() {
     if (UdpScan.server != null) {
@@ -30,10 +31,11 @@ export class UdpScan {
       console.log(`UDP server listening on ${address.address}:${address.port}`);
     });
     server.on("message", (message, remote) => {
-      UdpScan.clients.push({
+      let device = {
         address: remote.address,
         port: remote.port,
-      });
+      };
+      UdpScan.clients.push(device);
       console.log(
         `Received message from ${remote.address}:${remote.port}: ${message}`
       );
@@ -91,6 +93,18 @@ export class UdpScan {
     );
     UdpScan.clients = uniqueArray;
     return UdpScan.clients;
+  }
+  public static async scanServerAsync(
+    listener: (client: IClient) => void,
+    scanCount: number = 3
+  ) {
+    UdpScan.mOnClientDiscoverLinstener = listener;
+    UdpScan.createScanServer();
+    await UdpScan.waitForInitServer();
+    for (let i = 0; i < scanCount; i++) {
+      await UdpScan.sendBroadcast();
+      await timeout(3000);
+    }
   }
 
   public static release() {

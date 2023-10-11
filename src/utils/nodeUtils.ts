@@ -11,7 +11,7 @@ const copyFile = util.promisify(fs.copyFile);
 const unlink = util.promisify(fs.unlink);
 const resove = (p: string) => path.resolve(__dirname, p);
 
-// const CLIENT_PATH=process.env.NODE_ENV == 'production'?"./bin/autojs-server":"../bin/autojs-server"
+// const CLIENT_PATH=process.env.NODE_ENV == 'production'?"./bin/autobot-server":"../bin/autobot-server"
 
 // 获取设备列表
 async function getDevicesList(): Promise<Array<string>> {
@@ -88,18 +88,18 @@ async function _execAdbShell(
   return { stdout, stderr };
 }
 
-// 判断autojs-server是否安装
+// 判断autobot-server是否安装
 async function isInstallServer(deviceId: string) {
   const mingling = `shell ls /data/local/tmp`;
   const { stdout = "" } = await _execAdbShell(deviceId, mingling, false);
-  if (stdout && stdout.includes("autojs-server")) {
+  if (stdout && stdout.includes("autobot-server")) {
     return true;
   } else {
     return false;
   }
 }
 
-// 判断autojs-server是否安装
+// 激活运行服务
 async function activeAutoBotServer(deviceId: string) {
   const mingling = `shell "nohup app_process -Djava.class.path=/data/local/tmp/autobot-server.jar /data/local/tmp top.tntok.autobot.OooOO0o > /dev/null 2>&1 &"`;
   const { stderr } = await _execAdbShell(deviceId, mingling, false);
@@ -107,14 +107,14 @@ async function activeAutoBotServer(deviceId: string) {
   return !!stderr;
 }
 
-// 判断autojs-server是否安装
-async function activeAdbServer(deviceId: string) {
+// 开启wifiadb
+async function activeWifiAdb(deviceId: string) {
   const mingling = `tcpip 5555`;
   const { stderr } = await _execAdbShell(deviceId, mingling, false);
   if (stderr) console.error(stderr);
   return !!stderr;
 }
-// 判断autojs-server是否安装
+// 转发设备端口到pc
 async function forward2PC(
   deviceId: string,
   port: number,
@@ -127,7 +127,7 @@ async function forward2PC(
   return !!stderr;
 }
 
-// 判断autojs-server是否安装
+// 移除端口转发
 async function removeForward(
   deviceId: string,
   port: string | number
@@ -166,7 +166,7 @@ export {
   forward2PC,
   getPort,
   activeAutoBotServer,
-  activeAdbServer,
+  activeWifiAdb,
   isInstallServer,
   getDevicesList,
 };

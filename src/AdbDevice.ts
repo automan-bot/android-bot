@@ -1,5 +1,5 @@
 import {
-  activeAdbServer,
+  activeWifiAdb,
   activeAutoBotServer,
   forward2PC,
   getDevicesList,
@@ -29,6 +29,16 @@ class AdbDevice {
     });
     return devices;
   }
+  static listWifiDevicesAsync(
+    listener: (device: Device) => void,
+    scanCount = 3
+  ): void {
+    UdpScan.scanServerAsync(async (client) => {
+      let device = new Device(`${client.address}:${client.port}`);
+      await device.init();
+      listener(device);
+    }, scanCount);
+  }
   static async listUsbDevices(): Promise<Array<Device>> {
     //获取所有的adb 设备
     const devices = await getDevicesList();
@@ -55,7 +65,7 @@ class AdbDevice {
     const devices = await getDevicesList();
     for (let deviceId of devices) {
       try {
-        await activeAdbServer(deviceId);
+        await activeWifiAdb(deviceId);
         await activeAutoBotServer(deviceId);
       } catch (e) {}
     }
