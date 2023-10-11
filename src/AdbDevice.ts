@@ -5,6 +5,10 @@ import {
   getDevicesList,
   getForwardList,
   getPort,
+  removeForward,
+  getForwardInfoByDeviceId,
+  isInstallServer,
+  ForwardInfo,
 } from "src/utils/nodeUtils";
 import Device from "./Device";
 import { UdpScan } from "./core/UdpScan";
@@ -71,5 +75,16 @@ class AdbDevice {
     }
   }
 }
-
-export default AdbDevice;
+export {
+  AdbDevice,
+  activeWifiAdb,
+  activeAutoBotServer,
+  forward2PC,
+  getDevicesList,
+  getForwardList,
+  getPort,
+  removeForward,
+  getForwardInfoByDeviceId,
+  isInstallServer,
+  ForwardInfo,
+};

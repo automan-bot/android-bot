@@ -1,7 +1,20 @@
 // export  default as Adb from './adb'
 import Device from "./Device";
 import { BrowserWebSocket } from "./interface/BrowserWebSocket";
-import AdbDevice from "./AdbDevice";
+import {
+  AdbDevice,
+  activeWifiAdb,
+  activeAutoBotServer,
+  forward2PC,
+  getDevicesList,
+  getForwardList,
+  getPort,
+  removeForward,
+  getForwardInfoByDeviceId,
+  isInstallServer,
+  //type
+  ForwardInfo,
+} from "./AdbDevice";
 import { NodeWebSocket } from "./interface/NodeWebSocket";
 import {
   IScreenInfo,
@@ -50,6 +63,17 @@ export {
   Device,
   IWebSocket,
   ScreenControl,
+  activeWifiAdb,
+  activeAutoBotServer,
+  forward2PC,
+  getDevicesList,
+  getForwardList,
+  getPort,
+  removeForward,
+  getForwardInfoByDeviceId,
+  isInstallServer,
+  //type
+  ForwardInfo,
   //model
   IScreenInfo,
   IMemoryInfo,
