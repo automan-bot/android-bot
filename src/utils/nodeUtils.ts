@@ -88,6 +88,29 @@ async function execAdbShell(
   return { stdout, stderr };
 }
 
+//推送文件
+async function pushFile(
+  deviceId: string,
+  srcFilePath: string,
+  targetFilePath: string
+): Promise<boolean> {
+  const mingling = `push "${srcFilePath}" "${targetFilePath}"`;
+  const { stderr } = await execAdbShell(deviceId, mingling, false);
+  if (stderr) console.error(stderr);
+  return !!stderr;
+}
+
+//推送文件
+async function installApk(
+  deviceId: string,
+  apkFilePath: string
+): Promise<boolean> {
+  const mingling = `install -r -d "${apkFilePath}"`;
+  const { stderr } = await execAdbShell(deviceId, mingling, false);
+  if (stderr) console.error(stderr);
+  return !!stderr;
+}
+
 // 判断autobot-server是否安装
 async function isInstallServer(deviceId: string) {
   const mingling = `shell ls /data/local/tmp`;
@@ -160,6 +183,8 @@ async function delFile(filePath) {
 
 export {
   ForwardInfo,
+  pushFile,
+  installApk,
   removeForward,
   getForwardList,
   getForwardInfoByDeviceId,

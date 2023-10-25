@@ -10,6 +10,8 @@ import {
   isInstallServer,
   ForwardInfo,
   execAdbShell,
+  pushFile,
+  installApk,
 } from "./utils/nodeUtils";
 import Device from "./Device";
 import { UdpScan } from "./core/UdpScan";
@@ -88,5 +90,7 @@ export {
   getForwardInfoByDeviceId,
   isInstallServer,
   execAdbShell,
+  pushFile,
+  installApk,
   ForwardInfo,
 };

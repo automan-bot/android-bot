@@ -13,6 +13,8 @@ import {
   getForwardInfoByDeviceId,
   isInstallServer,
   execAdbShell,
+  pushFile,
+  installApk,
   //type
   ForwardInfo,
 } from "./AdbDevice";
@@ -74,6 +76,8 @@ export {
   getForwardInfoByDeviceId,
   isInstallServer,
   execAdbShell,
+  pushFile,
+  installApk,
   //type
   ForwardInfo,
   //model
