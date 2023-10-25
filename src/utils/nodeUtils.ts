@@ -72,7 +72,7 @@ async function getForwardInfoByDeviceId(
   return forwardInfo;
 }
 // 自定义Adb命令
-async function _execAdbShell(
+async function execAdbShell(
   deviceId: string,
   shellStr: string,
   showlog = true
@@ -91,7 +91,7 @@ async function _execAdbShell(
 // 判断autobot-server是否安装
 async function isInstallServer(deviceId: string) {
   const mingling = `shell ls /data/local/tmp`;
-  const { stdout = "" } = await _execAdbShell(deviceId, mingling, false);
+  const { stdout = "" } = await execAdbShell(deviceId, mingling, false);
   if (stdout && stdout.includes("autobot-server")) {
     return true;
   } else {
@@ -102,7 +102,7 @@ async function isInstallServer(deviceId: string) {
 // 激活运行服务
 async function activeAutoBotServer(deviceId: string) {
   const mingling = `shell "nohup app_process -Djava.class.path=/data/local/tmp/autobot-server.jar /data/local/tmp top.tntok.autobot.OooOO0o > /dev/null 2>&1 &"`;
-  const { stderr } = await _execAdbShell(deviceId, mingling, false);
+  const { stderr } = await execAdbShell(deviceId, mingling, false);
   if (stderr) console.error(stderr);
   return !!stderr;
 }
@@ -110,7 +110,7 @@ async function activeAutoBotServer(deviceId: string) {
 // 开启wifiadb
 async function activeWifiAdb(deviceId: string) {
   const mingling = `tcpip 5555`;
-  const { stderr } = await _execAdbShell(deviceId, mingling, false);
+  const { stderr } = await execAdbShell(deviceId, mingling, false);
   if (stderr) console.error(stderr);
   return !!stderr;
 }
@@ -122,7 +122,7 @@ async function forward2PC(
 ): Promise<boolean> {
   if (!port) throw new Error("映射端口不能为空");
   const mingling = `forward tcp:${port} tcp:${phonePort}`;
-  const { stderr } = await _execAdbShell(deviceId, mingling, false);
+  const { stderr } = await execAdbShell(deviceId, mingling, false);
   if (stderr) console.error(stderr);
   return !!stderr;
 }
@@ -134,7 +134,7 @@ async function removeForward(
 ): Promise<boolean> {
   if (!port) throw new Error("端口不能为空");
   const mingling = `forward --remove tcp:${port}`;
-  const { stderr } = await _execAdbShell(deviceId, mingling, false);
+  const { stderr } = await execAdbShell(deviceId, mingling, false);
   if (stderr) console.error(stderr);
   return !!stderr;
 }
@@ -163,6 +163,7 @@ export {
   removeForward,
   getForwardList,
   getForwardInfoByDeviceId,
+  execAdbShell,
   forward2PC,
   getPort,
   activeAutoBotServer,

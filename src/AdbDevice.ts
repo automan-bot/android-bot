@@ -9,6 +9,7 @@ import {
   getForwardInfoByDeviceId,
   isInstallServer,
   ForwardInfo,
+  execAdbShell,
 } from "./utils/nodeUtils";
 import Device from "./Device";
 import { UdpScan } from "./core/UdpScan";
@@ -86,5 +87,6 @@ export {
   removeForward,
   getForwardInfoByDeviceId,
   isInstallServer,
+  execAdbShell,
   ForwardInfo,
 };

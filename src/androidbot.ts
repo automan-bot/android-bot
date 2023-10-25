@@ -12,6 +12,7 @@ import {
   removeForward,
   getForwardInfoByDeviceId,
   isInstallServer,
+  execAdbShell,
   //type
   ForwardInfo,
 } from "./AdbDevice";
@@ -72,6 +73,7 @@ export {
   removeForward,
   getForwardInfoByDeviceId,
   isInstallServer,
+  execAdbShell,
   //type
   ForwardInfo,
   //model
