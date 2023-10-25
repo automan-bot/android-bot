@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig } from "axios";
 import request from "../utils/request";
-import { ErrListener } from "src/Model/GlobalModel";
+import { ErrListener } from "../Model/GlobalModel";
 const urlMap = {
   //get
   hello: "/hello",

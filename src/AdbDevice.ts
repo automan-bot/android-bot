@@ -9,7 +9,7 @@ import {
   getForwardInfoByDeviceId,
   isInstallServer,
   ForwardInfo,
-} from "src/utils/nodeUtils";
+} from "./utils/nodeUtils";
 import Device from "./Device";
 import { UdpScan } from "./core/UdpScan";
 /* import { getDevicesList, getPort } from "./utils/nodeUtils";
