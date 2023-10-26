@@ -21,7 +21,7 @@ import { PackageInfo } from "./Model/PackageInfo";
 
 class Device {
   public url: string;
-  public deviceId: String;
+  public deviceId: string;
   public displayName: string;
   private serverApi: ServerApi;
   public mScreenControl: ScreenControl;
@@ -62,7 +62,7 @@ class Device {
     let axiosResponse = await this.serverApi.getActiveInfo(null);
     return axiosResponse.data.data;
   }
-  async getDeviceId(): Promise<String> {
+  async getDeviceId(): Promise<string> {
     let axiosResponse = await this.serverApi.getDeviceId(null);
     return axiosResponse.data.data;
   }
