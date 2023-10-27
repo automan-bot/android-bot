@@ -266,7 +266,6 @@ export class ScreenControl
 
   onclose() {
     console.log("websocket 关闭");
-    this.retry();
   }
 
   onerror(err: Error) {
