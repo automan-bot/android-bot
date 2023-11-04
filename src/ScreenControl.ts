@@ -30,7 +30,6 @@ export class ScreenControl
 {
   url: string;
   private mWs: IWebSocket;
-  private isClose: boolean = false;
   private mOrentationChangeListenr: ScreenOrentationChangeCallback;
   private mNotificationChangeListenr: NotificationChangeCallback;
   private mScreenChangeListenr: ScreenChangeCallback;
@@ -131,9 +130,8 @@ export class ScreenControl
   }
   private async startRefreshScreenByPassive() {
     let timeOutIndex = 0;
-    while (!this.isClose && this.isStartScreenStream) {
-      await timeout(this.mFps);
-      if (this.isPassiveReceive || timeOutIndex > 50) {
+    while (this.isConnected && this.isStartScreenStream) {
+      if (this.isPassiveReceive || timeOutIndex > 5) {
         timeOutIndex = 0;
         this.isPassiveReceive = false;
         this.send({
@@ -142,6 +140,7 @@ export class ScreenControl
       } else {
         timeOutIndex++;
       }
+      await timeout(this.mFps);
     }
   }
 
@@ -231,8 +230,10 @@ export class ScreenControl
 
   //发送心跳包
   async startHeartBeat() {
-    while (!this.isClose) {
-      this.mWs.send("");
+    while (this.isConnected) {
+      try {
+        this.mWs.send("");
+      } catch (e) {}
       await timeout(1000);
     }
   }
@@ -266,7 +267,6 @@ export class ScreenControl
 
   onclose() {
     console.log("websocket 关闭");
-    this.retry();
   }
 
   onerror(err: Error) {
@@ -352,7 +352,6 @@ export class ScreenControl
   }
 
   destory() {
-    this.isClose = true;
     this.isRetury = false;
     this.isConnected = false;
     this.mOrentationChangeListenr = null;
