@@ -127,12 +127,12 @@ export class ScreenControl
     await this.resetScreenStream();
     this.isStartScreenStream = true;
     this.mCurrentState = ScreenState.STREAM_TYPE_PASSIVE;
-    this.startRefreshScreenByPassive(fps);
+    this.startRefreshScreenByPassive();
   }
-  private async startRefreshScreenByPassive(fps = 50) {
+  private async startRefreshScreenByPassive() {
     let timeOutIndex = 0;
     while (!this.isClose && this.isStartScreenStream) {
-      await timeout(fps);
+      await timeout(this.mFps);
       if (this.isPassiveReceive || timeOutIndex > 50) {
         timeOutIndex = 0;
         this.isPassiveReceive = false;
