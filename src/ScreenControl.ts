@@ -234,7 +234,7 @@ export class ScreenControl
       try {
         this.mWs.send("");
       } catch (e) {}
-      await timeout(1000);
+      await timeout(500);
     }
   }
   reStoreState() {
