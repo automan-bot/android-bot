@@ -212,6 +212,13 @@ export class ScreenControl
     this.pressKeyCode(67);
   }
 
+  sendCtrlA() {
+    this.checkClientIsNull();
+    this.send({
+      action: 5,
+    });
+  }
+
   sendInputText(value: string) {
     this.checkClientIsNull();
     this.send({

@@ -17,6 +17,7 @@ const urlMap = {
   getAllContact: "/getAllContact",
   deleteContact: "/deleteContact",
   getClipText: "/getClipText",
+  clearText: "/clearText",
   startRecoreScreen: "/startRecoreScreen",
   stopRecoreScreen: "/stopRecoreScreen",
   turnScreenOff: "/turnScreenOff",
@@ -187,6 +188,13 @@ class ServerApi {
   getClipText(para = null) {
     return this._request({
       url: this.urlMap["getClipText"],
+      method: "get",
+      params: para,
+    });
+  }
+  clearText(para = null) {
+    return this._request({
+      url: this.urlMap["clearText"],
       method: "get",
       params: para,
     });

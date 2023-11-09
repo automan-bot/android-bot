@@ -44,7 +44,7 @@ function connect() {
   ctx = canvas.getContext("2d");
   canvas.width = 720;
   canvas.height = 1280;
-  device = new Device("192.168.124.4:18080");
+  device = new Device("192.168.124.10:18080");
   let screenWidth;
   let screenHeight;
   function handleEvent(e) {
@@ -103,9 +103,17 @@ function connect() {
     event.target.value = "";
   });
   inputText.addEventListener("input", function (event) {
+    console.log(event);
     if (event.inputType == "insertText") {
       let value = event.data.trim();
       if (value) mScreenControl.sendInputChar(event.data);
+      event.target.value = "";
+    }
+    if (event.inputType === "insertFromPaste") {
+      let value = event.target.value.trim();
+      if (value) {
+        mScreenControl.sendInputText(value);
+      }
       event.target.value = "";
     }
   });
@@ -120,6 +128,14 @@ function connect() {
         console.log("删除");
         //删除
         mScreenControl.sendBackSpaceKey();
+        break;
+      case 65:
+      case 97:
+        //按下了control+a键
+        if (event.ctrlKey) {
+          mScreenControl.sendCtrlA();
+          event.preventDefault();
+        }
         break;
     }
   });

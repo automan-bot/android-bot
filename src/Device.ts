@@ -125,6 +125,10 @@ class Device {
     let axiosResponse = await this.serverApi.getClipText();
     return axiosResponse.data.data;
   }
+  async clearText(): Promise<boolean> {
+    let axiosResponse = await this.serverApi.clearText();
+    return axiosResponse.data.data == "1";
+  }
   async turnScreenOff(): Promise<boolean> {
     let axiosResponse = await this.serverApi.turnScreenOff();
     return axiosResponse.data.data == "1";
