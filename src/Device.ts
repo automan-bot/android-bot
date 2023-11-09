@@ -332,6 +332,7 @@ class Device {
 
   async execScript(
     action: string,
+    name: string,
     script: string,
     delay: number = 0,
     interval: number = 0,
@@ -339,6 +340,7 @@ class Device {
   ): Promise<boolean> {
     let axiosResponse = await this.serverApi.execScript({
       action,
+      name,
       script,
       delay,
       interval,

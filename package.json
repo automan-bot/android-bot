@@ -1,6 +1,6 @@
 {
   "name": "android-bot",
-  "version": "2.6.5",
+  "version": "2.6.6",
   "description": "Android-bot is built on the AutoBot JavaScript library and provides features such as wireless screen casting and real-time control within a local network, key simulation, screen recording, screenshot capture, layout analysis, file management, application management, and address book management. It offers greater stability, simplicity, and ease of use compared to scrcpy and adb-kit.  android-bot 是基于 AutoBot 得 JavaScript库，局域网内无线投屏/实时控制,按键模拟，录制屏幕，截屏，布局分析，文件管理，应用管理，通讯录管理；比scrcpy，adb-kit更 稳定简单易用",
   "keywords": [
     "android-bot",
