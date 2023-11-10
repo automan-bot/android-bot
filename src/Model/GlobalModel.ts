@@ -248,9 +248,4 @@ export class ShortPackageInfo {
   public lastUpdateTime: number;
 }
 
-// export type IRunScriptType = "run" | "stop" | "stopAll";
-export enum IRunScriptType {
-  RUN = "run",
-  STOP = "stop",
-  STOP_ALL = "stopAll",
-}
+export type IRunScriptType = "run" | "stop" | "stopAll";
