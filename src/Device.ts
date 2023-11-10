@@ -7,6 +7,7 @@ import {
   IDeviceInfo,
   IFileItem,
   IGesture,
+  IRunScriptType,
   IScreenInfo,
   ITopActivityInfo,
   IUIObject,
@@ -331,9 +332,9 @@ class Device {
   }
 
   async execScript(
-    action: string,
+    action: IRunScriptType,
     name: string,
-    script: string,
+    script: string = "",
     delay: number = 0,
     interval: number = 0,
     loopTimes: number = 1

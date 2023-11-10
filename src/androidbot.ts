@@ -43,6 +43,7 @@ import {
   ActiveInfo,
   ErrListener,
   ShortPackageInfo,
+  IRunScriptType,
 } from "./Model/GlobalModel";
 
 import { IWebSocket } from "./interface/IWebSocket";
@@ -113,4 +114,5 @@ export {
   SubPackageInfo,
   PackageInfo,
   ShortPackageInfo,
+  IRunScriptType,
 };
