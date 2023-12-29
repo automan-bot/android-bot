@@ -10,7 +10,7 @@ import typescript from "@rollup/plugin-typescript";
 import { minify } from "rollup-plugin-esbuild";
 import { defineConfig } from "rollup";
 import pkg from "../package.json";
-import camelCase from "lodash/fp/camelcase";
+import { camelCase } from "lodash-es";
 import copy from "rollup-plugin-copy";
 const libraryName = "androidbot";
 let whiteListedModules = ["axios", "websocket"];
