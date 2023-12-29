@@ -212,6 +212,10 @@ export class ScreenControl
     this.pressKeyCode(67);
   }
 
+  sendEnterKey() {
+    this.pressKeyCode(67);
+  }
+
   sendCtrlA() {
     this.checkClientIsNull();
     this.send({

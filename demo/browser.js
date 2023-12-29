@@ -119,6 +119,11 @@ function connect() {
   });
   inputText.addEventListener("keydown", function (event) {
     switch (event.keyCode) {
+      case 13:
+        console.log("回车");
+        //回车
+        mScreenControl.sendSpaceKey();
+        break;
       case 32:
         console.log("空格");
         //空格
