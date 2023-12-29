@@ -44,7 +44,7 @@ function connect() {
   ctx = canvas.getContext("2d");
   canvas.width = 720;
   canvas.height = 1280;
-  device = new Device("192.168.124.10:18080");
+  device = new Device("192.168.124.2:18080");
   let screenWidth;
   let screenHeight;
   function handleEvent(e) {

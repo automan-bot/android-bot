@@ -8,7 +8,6 @@ import json from "@rollup/plugin-json";
 // import esbuild from 'rollup-plugin-esbuild';
 import typescript from "@rollup/plugin-typescript";
 import { minify } from "rollup-plugin-esbuild";
-// import obfuscator from 'rollup-plugin-obfuscator';
 import { defineConfig } from "rollup";
 import pkg from "../package.json";
 import camelCase from "lodash/fp/camelcase";
