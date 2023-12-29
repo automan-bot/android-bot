@@ -39,7 +39,7 @@ jobs:
 
           # Modify JSON data (example: change value of "key1")
           python3 -c "import sys, json; data=json.load(sys.stdin); data['version'] = '${{steps.vars.outputs.short_ref}}'; print(json.dumps(data, indent=2))" <<< "$json_data" > "$json_file"
-
+          cat $json_file
       - name: 打包编译
         run: |
           npm i
