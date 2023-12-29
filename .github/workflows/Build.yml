@@ -19,6 +19,8 @@ jobs:
       NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: "master"
       - name: Set output
         id: vars
         run: |
@@ -59,6 +61,5 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          branch: master
           push_options: --force
           commit_message: "[CI] publish new version ${{steps.vars.outputs.short_ref}}"
