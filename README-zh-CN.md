@@ -128,6 +128,7 @@ async function main() {
     let screenImg = await device.screenShot();
     //获取系统信息
     let iDeviceInfo = await device.getSystemInfo();
+    console.log(iDeviceInfo);
     //获取屏幕ui布局的JSON格式
     let iuiObject = await device.screenJson();
   }
