@@ -213,7 +213,7 @@ export class ScreenControl
   }
 
   sendEnterKey() {
-    this.pressKeyCode(67);
+    this.pressKeyCode(66);
   }
 
   sendCtrlA() {

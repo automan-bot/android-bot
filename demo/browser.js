@@ -122,7 +122,7 @@ function connect() {
       case 13:
         console.log("回车");
         //回车
-        mScreenControl.sendSpaceKey();
+        mScreenControl.sendEnterKey();
         break;
       case 32:
         console.log("空格");
