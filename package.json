@@ -20,7 +20,7 @@
   "clientVersion": "12406",
   "main": "dist/androidbot.umd.js",
   "browser": "dist/androidbot.browser.js",
-  "typings": "dist/types/androidbot.d.ts",
+  "typings": "dist/androidbot.d.ts",
   "files": [
     "dist"
   ],
