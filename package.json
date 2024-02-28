@@ -1,7 +1,7 @@
 {
   "name": "android-bot",
-  "version": "2.8.0",
-  "description": "Android-bot is built on the AutoBot JavaScript library and provides features such as wireless screen casting and real-time control within a local network, key simulation, screen recording, screenshot capture, layout analysis, file management, application management, and address book management. It offers greater stability, simplicity, and ease of use compared to scrcpy and adb-kit.  android-bot 是基于 AutoBot 得 JavaScript库，局域网内无线投屏/实时控制,按键模拟，录制屏幕，截屏，布局分析，文件管理，应用管理，通讯录管理；比scrcpy，adb-kit更 稳定简单易用",
+  "version": "2.8.1",
+  "description": "Android-bot is built on the AutoBot JavaScript library and provides features such as wireless screen casting and real-time control within a local network, key simulation, screen recording, screenshot capture, layout analysis, file management, application management, and address book management. It offers greater stability, simplicity, and ease of use compared to scrcpy and adb-kit.  android-bot \u662f\u57fa\u4e8e AutoBot \u5f97 JavaScript\u5e93\uff0c\u5c40\u57df\u7f51\u5185\u65e0\u7ebf\u6295\u5c4f/\u5b9e\u65f6\u63a7\u5236,\u6309\u952e\u6a21\u62df\uff0c\u5f55\u5236\u5c4f\u5e55\uff0c\u622a\u5c4f\uff0c\u5e03\u5c40\u5206\u6790\uff0c\u6587\u4ef6\u7ba1\u7406\uff0c\u5e94\u7528\u7ba1\u7406\uff0c\u901a\u8baf\u5f55\u7ba1\u7406\uff1b\u6bd4scrcpy\uff0cadb-kit\u66f4 \u7a33\u5b9a\u7b80\u5355\u6613\u7528",
   "keywords": [
     "android-bot",
     "AutoBot",
