@@ -43,8 +43,16 @@ class Device {
     this.mScreenControl.setWebSocktClient(iWebSocket);
   }
   async init() {
-    this.deviceId = await this.getDeviceId();
-    this.displayName = await this.getDisplayName();
+    try {
+      this.deviceId = await this.getDeviceId();
+    } catch (e) {
+      this.deviceId = "";
+    }
+    try {
+      this.displayName = await this.getDisplayName();
+    } catch (e) {
+      this.displayName = "";
+    }
   }
   async hello(): Promise<boolean> {
     try {
