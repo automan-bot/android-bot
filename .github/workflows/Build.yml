@@ -1,0 +1,65 @@
+name: Build Prod
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "*"
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    env:
+      NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: "master"
+      - name: Set output
+        id: vars
+        run: |
+          echo "short_ref=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
+          echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+      - name: 显示环境变量
+        run: |
+          echo "环境变量：$NPM_AUTH_TOKEN"
+      - name: 初始化 Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: 根据tag修改版本号到package.json
+        run: |
+          # Read JSON file
+          json_file="package.json"
+          json_data=$(cat $json_file)
+
+          # Modify JSON data (example: change value of "key1")
+          python3 -c "import sys, json; data=json.load(sys.stdin); data['version'] = '${{steps.vars.outputs.short_ref}}'; print(json.dumps(data, indent=2))" <<< "$json_data" > "$json_file"
+          cat $json_file
+      - name: 打包编译
+        run: |
+          npm i
+          npm i -g esno
+          npm run build
+      - name: 查看编译结果
+        run: |
+          cd ./dist
+          echo "Current Directory: $(pwd)"
+          ls
+      - name: Login to npm
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          npm config set registry https://registry.npmjs.org/
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
+          npm publish
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          push_options: --force
+          commit_message: "[CI] publish new version ${{steps.vars.outputs.short_ref}}"

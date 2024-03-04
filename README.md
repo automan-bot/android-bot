@@ -6,7 +6,7 @@
 
 android-bot is a JavaScript SDK based on AutoBot. It supports both browser and Node.js environments. In Node.js, it can automatically scan LAN clients.
 
-[NPM Homepage](https://www.npmjs.com/package/android-bot)| [Github Homepage](https://github.com/automan-bot/android-bot)| [AutoBot Documentation](https://doc.tntok.top)
+[NPM Homepage](https://www.npmjs.com/package/android-bot)| [Github Homepage](https://github.com/automan-bot/android-bot)| [AutoBot Documentation](https://mobile.tntok.top/autobot_doc)
 
 ### What functionality APIs have been implemented so far?
 
@@ -35,13 +35,13 @@ In the Node.js environment, it supports LAN network discovery and can automatica
 
 ### Preparation
 
-You need to have the AutoBot app installed on your device and successfully running the service. For specific instructions, please refer to the [AutoBot official website](http://doc.tntok.top) -> Preparation section.
+You need to have the AutoBot app installed on your device and successfully running the service. For specific instructions, please refer to the [AutoBot official website](https://mobile.tntok.top/autobot_doc) -> Preparation section.
 
 Important:
 
-- This library is based on the official HTTP API and WebSocket API of AutoBot. Please read the [AutoBot documentation](http://doc.tntok.top) carefully.
-- This library is based on the official HTTP API and WebSocket API of AutoBot. Please read the [AutoBot documentation](http://doc.tntok.top) carefully.
-- This library is based on the official HTTP API and WebSocket API of AutoBot. Please read the [AutoBot documentation](http://doc.tntok.top) carefully.
+- This library is based on the official HTTP API and WebSocket API of AutoBot. Please read the [AutoBot documentation](https://mobile.tntok.top/autobot_doc) carefully.
+- This library is based on the official HTTP API and WebSocket API of AutoBot. Please read the [AutoBot documentation](https://mobile.tntok.top/autobot_doc) carefully.
+- This library is based on the official HTTP API and WebSocket API of AutoBot. Please read the [AutoBot documentation](https://mobile.tntok.top/autobot_doc) carefully.
 
 ### Installing the Supporting Library
 
@@ -277,7 +277,7 @@ import { BrowserWebSocket, Device } from "android-bot";
 
 ### I still have questions about the parameters of some methods.
 
-`android-bot` is a wrapper for the Http API and WebSocket API of AutoBot. You can refer to the corresponding [AutoBot documentation](http://doc.tntok.top).
+`android-bot` is a wrapper for the Http API and WebSocket API of AutoBot. You can refer to the corresponding [AutoBot documentation](https://mobile.tntok.top/autobot_doc).
 
 ## Custom Development
 

@@ -22,8 +22,12 @@ async function main2() {
           `宽度：${width},高度：${height},是否横屏:${isLandscape},方向:${rotation}`
       );
     });
-    await device.execScript("console.show(true);console.log(`hello world`)");
-    await device.stopAllScript();
+    await device.execScript(
+      "run",
+      "test",
+      "console.show(true);console.log(`hello world`)"
+    );
+    // await device.stopAllScript();
     /*     await device.click(500, 500);
     await device.longClick(0.5, 0.5);
     await device.press(0.7, 0.7, 1000);

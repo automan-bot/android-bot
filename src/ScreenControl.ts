@@ -212,6 +212,17 @@ export class ScreenControl
     this.pressKeyCode(67);
   }
 
+  sendEnterKey() {
+    this.pressKeyCode(66);
+  }
+
+  sendCtrlA() {
+    this.checkClientIsNull();
+    this.send({
+      action: 5,
+    });
+  }
+
   sendInputText(value: string) {
     this.checkClientIsNull();
     this.send({
@@ -234,7 +245,7 @@ export class ScreenControl
       try {
         this.mWs.send("");
       } catch (e) {}
-      await timeout(1000);
+      await timeout(500);
     }
   }
   reStoreState() {

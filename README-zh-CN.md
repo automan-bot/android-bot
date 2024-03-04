@@ -6,7 +6,7 @@
 
 android-bot 是基于 AutoBot 得 JavaScript SDK，同时支持 浏览器环境 和 Node 环境，Node 环境下，支持自动扫描局域网客户端
 
-[NPM](https://www.npmjs.com/package/android-bot)| [Github](https://github.com/automan-bot/android-bot)| [AutoBot 文档](https://doc.tntok.top)
+[NPM](https://www.npmjs.com/package/android-bot)| [Github](https://github.com/automan-bot/android-bot)| [AutoBot 文档](https://mobile.tntok.top/autobot_doc)
 
 ### 目前已经实现了什么功能 API？
 
@@ -36,13 +36,13 @@ android-bot 是基于 AutoBot 得 JavaScript SDK，同时支持 浏览器环境 
 
 ### 准备工作
 
-需要设备安装 AutoBot APP，且成功运行服务，具体可以参考[AutoBot 官网](http://doc.tntok.top)->准备工作部分
+需要设备安装 AutoBot APP，且成功运行服务，具体可以参考[AutoBot 官网](https://mobile.tntok.top/autobot_doc)->准备工作部分
 
 重要的事情说三遍：
 
-- 此库是基于 AutoBot 官方 Http API 和 WebSocket API 封装，请你务必先仔细阅读[AutoBot 文档](http://doc.tntok.top)
-- 此库是基于 AutoBot 官方 Http API 和 WebSocket API 封装，请你务必先仔细阅读[AutoBot 文档](http://doc.tntok.top)
-- 此库是基于 AutoBot 官方 Http API 和 WebSocket API 封装，请你务必先仔细阅读[AutoBot 文档](http://doc.tntok.top)
+- 此库是基于 AutoBot 官方 Http API 和 WebSocket API 封装，请你务必先仔细阅读[AutoBot 文档](https://mobile.tntok.top/autobot_doc)
+- 此库是基于 AutoBot 官方 Http API 和 WebSocket API 封装，请你务必先仔细阅读[AutoBot 文档](https://mobile.tntok.top/autobot_doc)
+- 此库是基于 AutoBot 官方 Http API 和 WebSocket API 封装，请你务必先仔细阅读[AutoBot 文档](https://mobile.tntok.top/autobot_doc)
 
 ### 安装支持库
 
@@ -128,6 +128,7 @@ async function main() {
     let screenImg = await device.screenShot();
     //获取系统信息
     let iDeviceInfo = await device.getSystemInfo();
+    console.log(iDeviceInfo);
     //获取屏幕ui布局的JSON格式
     let iuiObject = await device.screenJson();
   }
@@ -276,7 +277,7 @@ import { BrowserWebSocket, Device } from "android-bot";
 
 ### 有些方法的参数我还是有疑问？
 
-`android-bot`是对 AutoBot 的 Http API 和 WebSocket API 的封装，你可以查看对应的[AutoBot 官](http://doc.tntok.top)
+`android-bot`是对 AutoBot 的 Http API 和 WebSocket API 的封装，你可以查看对应的[AutoBot 官](https://mobile.tntok.top/autobot_doc)
 
 ## 二次开发
 

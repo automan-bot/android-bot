@@ -247,3 +247,5 @@ export class ShortPackageInfo {
   public firstInstallTime: number;
   public lastUpdateTime: number;
 }
+
+export type IRunScriptType = "run" | "stop" | "stopAll";

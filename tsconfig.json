@@ -1,40 +1,28 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-        "resolveJsonModule": true,
-        "baseUrl": ".",
-        "outDir": "./dist",
-        "declarationDir": "./dist/types",
-        "sourceMap": true,
-        "declaration": true,
-        "module": "esnext",
-        "moduleResolution": "node",
-        "allowSyntheticDefaultImports": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "importHelpers": true,
-        "target": "es2015",
-        "types": [
-            "node"
-        ],
-        "paths": {
-
-        },
-        "typeRoots": [
-            "node_modules/@types",
-            "customTypes/*"
-        ],
-        "lib": [
-            "es2018",
-            "dom"
-        ]
-    },
-    "include": [
-        "src/**/*",
-//        ".build/**/*",
-        "customTypes/*"
-    ],
-    "exclude": [
-        "node_modules"
-    ]
+  "compileOnSave": false,
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "declarationDir": "./dist",
+    "sourceMap": true,
+    "declaration": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "types": ["node"],
+    "paths": {},
+    "typeRoots": ["node_modules/@types", "customTypes/*"],
+    "lib": ["es2018", "dom"]
+  },
+  "include": [
+    "src/**/*",
+    //        ".build/**/*",
+    "customTypes/*"
+  ],
+  "exclude": ["node_modules"]
 }

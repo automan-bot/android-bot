@@ -7,6 +7,7 @@ import {
   IDeviceInfo,
   IFileItem,
   IGesture,
+  IRunScriptType,
   IScreenInfo,
   ITopActivityInfo,
   IUIObject,
@@ -124,6 +125,10 @@ class Device {
   async getClipText(): Promise<string> {
     let axiosResponse = await this.serverApi.getClipText();
     return axiosResponse.data.data;
+  }
+  async clearText(): Promise<boolean> {
+    let axiosResponse = await this.serverApi.clearText();
+    return axiosResponse.data.data == "1";
   }
   async turnScreenOff(): Promise<boolean> {
     let axiosResponse = await this.serverApi.turnScreenOff();
@@ -327,12 +332,16 @@ class Device {
   }
 
   async execScript(
-    script: string,
+    action: IRunScriptType,
+    name: string,
+    script: string = "",
     delay: number = 0,
     interval: number = 0,
     loopTimes: number = 1
   ): Promise<boolean> {
     let axiosResponse = await this.serverApi.execScript({
+      action,
+      name,
       script,
       delay,
       interval,
