@@ -1,8 +1,10 @@
 import { NotificationChangeCallback } from "./../src/Model/GlobalModel";
 import { Device, NodeWebSocket } from "../src/androidbot";
+import FormData from "form-data";
+import fs from "fs";
 async function main() {
-  const device = new Device("192.168.124.11:18080");
-  device.setWebSocketClient(new NodeWebSocket());
+  const device = new Device("127.0.0.1:2033");
+  /*  device.setWebSocketClient(new NodeWebSocket());
   device.mScreenControl.addScreenChangeListener(function (screenImg) {
     console.log("接收到新的屏幕图像：", screenImg);
   });
@@ -19,6 +21,15 @@ async function main() {
 
   device.addErrorListener(function (e) {
     console.log("错误信息", e);
+  }); */
+  let formData = new FormData();
+  formData.append("path", "/sdcard/Download/");
+  formData.append(
+    "file",
+    fs.createReadStream("C:\\Users\\ZhaoYu\\Downloads\\nemu-cloner.apk")
+  );
+  const result_path = await device.upload(formData, {
+    headers: formData.getHeaders(),
   });
 }
 

@@ -121,6 +121,21 @@ async function isInstallServer(deviceId: string) {
     return false;
   }
 }
+//获取所有包名
+async function getPackageList(deviceId: string) {
+  const { stdout, stderr } = await execAdbShell(
+    deviceId,
+    `shell "pm list packages"`
+  );
+  let result = [];
+  if (!stderr) {
+    result = stdout
+      .split(/[\r\n]+/gi)
+      .map((item) => item.replace("package:", "").trim())
+      .filter(Boolean);
+  }
+  return result;
+}
 
 // 激活运行服务
 async function activeAutoBotServer(deviceId: string) {
@@ -188,6 +203,7 @@ export {
   removeForward,
   getForwardList,
   getForwardInfoByDeviceId,
+  getPackageList,
   execAdbShell,
   forward2PC,
   getPort,

@@ -12,6 +12,7 @@ import {
   execAdbShell,
   pushFile,
   installApk,
+  getPackageList,
 } from "./utils/nodeUtils";
 import Device from "./Device";
 import { UdpScan } from "./core/UdpScan";
@@ -92,5 +93,6 @@ export {
   execAdbShell,
   pushFile,
   installApk,
+  getPackageList,
   ForwardInfo,
 };

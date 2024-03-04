@@ -15,6 +15,7 @@ import {
   execAdbShell,
   pushFile,
   installApk,
+  getPackageList,
   //type
   ForwardInfo,
 } from "./AdbDevice";
@@ -78,6 +79,7 @@ export {
   execAdbShell,
   pushFile,
   installApk,
+  getPackageList,
   //type
   ForwardInfo,
   //model

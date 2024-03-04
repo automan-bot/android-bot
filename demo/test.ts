@@ -1,7 +1,11 @@
-import { AdbDevice, NodeWebSocket } from "../src/androidbot";
-import FormData from "form-data";
-import fs from "fs";
-async function main() {
+import {
+  AdbDevice,
+  NodeWebSocket,
+  getDevicesList,
+  getPackageList,
+} from "../src/androidbot";
+
+async function main2() {
   const devices = await AdbDevice.listWifiDevices();
   if (devices[0]) {
     let device = devices[0];
@@ -54,5 +58,9 @@ async function main() {
   }
   // console.log(devices)
 }
-
+async function main() {
+  const list = await getDevicesList();
+  const pslist = await getPackageList(list[0]);
+  console.log(pslist);
+}
 main();
