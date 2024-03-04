@@ -125,7 +125,8 @@ async function isInstallServer(deviceId: string) {
 async function getPackageList(deviceId: string) {
   const { stdout, stderr } = await execAdbShell(
     deviceId,
-    `shell "pm list packages"`
+    `shell "pm list packages"`,
+    false
   );
   let result = [];
   if (!stderr) {
