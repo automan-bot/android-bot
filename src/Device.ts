@@ -338,6 +338,10 @@ class Device {
     let axiosResponse = await this.serverApi.playMusic({ value: musicUrl });
     return axiosResponse.data.data == "1";
   }
+  async setClipText(text: string): Promise<boolean> {
+    let axiosResponse = await this.serverApi.setClipText({ value: text });
+    return axiosResponse.data.data == "1";
+  }
 
   async execScript(
     action: IRunScriptType,

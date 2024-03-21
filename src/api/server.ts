@@ -63,6 +63,7 @@ const urlMap = {
   setDisplayName: "/setDisplayName",
   playMusic: "/playMusic",
   execScript: "/execScript",
+  setClipText: "/setClipText",
 };
 class ServerApi {
   private baseUrl: string;
@@ -560,6 +561,16 @@ class ServerApi {
   execScript(para = null) {
     return this._request({
       url: this.urlMap["execScript"],
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+      method: "post",
+      data: para,
+    });
+  }
+  setClipText(para = null) {
+    return this._request({
+      url: this.urlMap["setClipText"],
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
       },
