@@ -35,13 +35,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: 根据tag修改版本号到package.json
         run: |
-          # Read JSON file
-          json_file="package.json"
-          json_data=$(cat $json_file)
-
-          # Modify JSON data (example: change value of "key1")
-          python3 -c "import sys, json; data=json.load(sys.stdin); data['version'] = '${{steps.vars.outputs.short_ref}}'; print(json.dumps(data, indent=2))" <<< "$json_data" > "$json_file"
-          cat $json_file
+          echo ${{steps.tag.outputs.tag}}
+          node changeVersion.js  ${{steps.tag.outputs.tag}}
+          cat package.json
       - name: 打包编译
         run: |
           npm i
