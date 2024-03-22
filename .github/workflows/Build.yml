@@ -35,6 +35,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: 根据tag修改版本号到package.json
         run: |
+          ls -l
           echo ${{steps.tag.outputs.tag}}
           node changeVersion.js  ${{steps.tag.outputs.tag}}
           cat package.json
