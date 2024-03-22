@@ -26,6 +26,12 @@ jobs:
         run: |
           echo "short_ref=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
           echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+      - name: Get tag
+        id: tag
+        uses: devops-actions/action-get-tag@v1.0.2
+        with:
+          strip_v: true # Optional: Remove 'v' character from version
+          default: v0.0.0 # Optional: Default version when tag not found
       - name: 显示环境变量
         run: |
           echo "环境变量：$NPM_AUTH_TOKEN"
