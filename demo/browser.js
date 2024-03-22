@@ -1,6 +1,6 @@
 // import { BrowserWebSocket, Device } from "../dist/androidbot.browser";
-import { BrowserWebSocket, Device } from "../src/browser";
-
+import { BrowserWebSocket, Device, KeyCode } from "../src/browser";
+console.log(KeyCode.backSpace);
 let image = new Image();
 let ctx = null;
 

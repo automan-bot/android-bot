@@ -46,6 +46,7 @@ import {
   ShortPackageInfo,
   IRunScriptType,
 } from "./Model/GlobalModel";
+import { KeyCode } from "./Model/KeyCode";
 
 import { IWebSocket } from "./interface/IWebSocket";
 import { ScreenControl } from "./ScreenControl";
@@ -117,4 +118,6 @@ export {
   PackageInfo,
   ShortPackageInfo,
   IRunScriptType,
+  //enum
+  KeyCode,
 };
