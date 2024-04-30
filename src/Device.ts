@@ -361,6 +361,24 @@ class Device {
     });
     return axiosResponse.data.data == "1";
   }
+  async execScriptByPath(
+    action: IRunScriptType,
+    name: string,
+    path: string = "",
+    delay: number = 0,
+    interval: number = 0,
+    loopTimes: number = 1
+  ): Promise<boolean> {
+    let axiosResponse = await this.serverApi.execScript({
+      action,
+      name,
+      path,
+      delay,
+      interval,
+      loopTimes,
+    });
+    return axiosResponse.data.data == "1";
+  }
 
   destory() {
     try {
