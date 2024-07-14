@@ -227,6 +227,18 @@ class Device {
     let axiosResponse = await this.serverApi.stopAllScript(null);
     return axiosResponse.data.data == "1";
   }
+  async turnSafeModeOn(): Promise<boolean> {
+    let axiosResponse = await this.serverApi.turnSafeModeOn(null);
+    return axiosResponse.data.data == "1";
+  }
+  async turnSafeModeOff(): Promise<boolean> {
+    let axiosResponse = await this.serverApi.turnSafeModeOn(null);
+    return axiosResponse.data.data == "1";
+  }
+  async isSafeMode(): Promise<boolean> {
+    let axiosResponse = await this.serverApi.turnSafeModeOn(null);
+    return axiosResponse.data.data == "1";
+  }
 
   async upload(formData: FormData | any, config): Promise<string> {
     let axiosResponse = await this.serverApi.upload(formData, config);

@@ -241,6 +241,9 @@ main();
 | gesture                | 单指手势                               |
 | gestures               | 多指手势                               |
 | listFile               | 列出文件夹                             |
+| turnSafeModeOn         | 开启安全模式                           | 安全模式下无法使获取屏幕布局，无法使用文字查找，选择器查找功能，且 websocket 通知信息将不再通知用                       |
+| turnSafeModeOff        | 关闭安全模式                           |
+| isSafeMode             | 判断是否是安全模式                     |
 | upload                 | 上传一个文件                           |                                                                                                                         |
 | uploadUrl              | 获取上传文件得 url                     | 需要构建一个 FormData 对象，file 为 file 对象，path 为要上传到得文件夹                                                  |
 | delFile                | 删除一个文件或文件夹                   | 传入一个路径，文件夹：/sdcard/tmp，文件/sdcard/hello.txt                                                                |

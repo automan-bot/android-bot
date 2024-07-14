@@ -41,6 +41,9 @@ const urlMap = {
   callPhone: "/callPhone",
   endCall: "/endCall",
   stopAllScript: "/stopAllScript",
+  turnSafeModeOn: "/turnSafeModeOn",
+  turnSafeModeOff: "/turnSafeModeOff",
+  isSafeMode: "/isSafeMode",
   //post mutiparform
   upload: "/upload",
   //post
@@ -360,6 +363,27 @@ class ServerApi {
   stopAllScript(para = null) {
     return this._request({
       url: this.urlMap["stopAllScript"],
+      method: "get",
+      params: para,
+    });
+  }
+  turnSafeModeOn(para = null) {
+    return this._request({
+      url: this.urlMap["turnSafeModeOn"],
+      method: "get",
+      params: para,
+    });
+  }
+  turnSafeModeOff(para = null) {
+    return this._request({
+      url: this.urlMap["turnSafeModeOff"],
+      method: "get",
+      params: para,
+    });
+  }
+  isSafeMode(para = null) {
+    return this._request({
+      url: this.urlMap["isSafeMode"],
       method: "get",
       params: para,
     });
