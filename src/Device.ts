@@ -232,11 +232,11 @@ class Device {
     return axiosResponse.data.data == "1";
   }
   async turnSafeModeOff(): Promise<boolean> {
-    let axiosResponse = await this.serverApi.turnSafeModeOn(null);
+    let axiosResponse = await this.serverApi.turnSafeModeOff(null);
     return axiosResponse.data.data == "1";
   }
   async isSafeMode(): Promise<boolean> {
-    let axiosResponse = await this.serverApi.turnSafeModeOn(null);
+    let axiosResponse = await this.serverApi.isSafeMode(null);
     return axiosResponse.data.data == "1";
   }
 
