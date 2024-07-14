@@ -93,13 +93,17 @@ class Device {
     return axiosResponse.data.data as IDeviceInfo;
   }
 
-  async screenJson(): Promise<IUIObject> {
-    let axiosResponse = await this.serverApi.screenJson(null);
+  async screenJson(isWait: boolean = false): Promise<IUIObject> {
+    let axiosResponse = await this.serverApi.screenJson({
+      isWait: isWait ? 1 : 0,
+    });
     return axiosResponse.data.data as IUIObject;
   }
 
-  async screenXml(): Promise<string> {
-    let axiosResponse = await this.serverApi.screenXml(null);
+  async screenXml(isWait: boolean = false): Promise<string> {
+    let axiosResponse = await this.serverApi.screenXml({
+      isWait: isWait ? 1 : 0,
+    });
     return axiosResponse.data.data;
   }
 
