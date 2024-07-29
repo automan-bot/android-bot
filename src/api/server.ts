@@ -394,6 +394,7 @@ class ServerApi {
       url: this.urlMap["upload"],
       method: "post",
       data: para,
+      timeout: 5 * 60 * 1000,
       ...config,
     });
   }
