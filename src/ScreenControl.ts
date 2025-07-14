@@ -8,6 +8,7 @@ import {
 import { timeout } from "./utils";
 import {
   ClipTextChangeCallback,
+  CloseListener,
   ErrListener,
   INotificationMessage,
   NotificationChangeCallback,
@@ -41,9 +42,10 @@ export class ScreenControl
   private mSale: number = 1.0;
   private mQuality: number = 50;
   private mFps: number = 50;
-  private mRetryNumber: number = 10;
+  private mRetryNumber: number = 6;
   private mCurrentState: ScreenState = ScreenState.STREAM_TYPE_STOP;
   private mErrorListener: ErrListener;
+  private mCloseListener: CloseListener;
 
   constructor(url: string, isSsl: boolean = false) {
     let protocol = isSsl ? "wss://" : "ws://";
@@ -53,8 +55,15 @@ export class ScreenControl
   addErrorListener(listener: ErrListener) {
     this.mErrorListener = listener;
   }
+
+  addCloseListener(listener: CloseListener) {
+    this.mCloseListener = listener;
+  }
   onError(err: string) {
     if (this.mErrorListener) this.mErrorListener(err);
+  }
+  onClose(e) {
+    if (this.mCloseListener) this.mCloseListener(e);
   }
 
   setWebSocktClient(iWebSocket: IWebSocket) {
@@ -276,7 +285,9 @@ export class ScreenControl
     this.destory();
   }
 
-  onclose() {
+  onclose(e) {
+    this.isConnected=false;
+    this.onClose(e);
     console.log("websocket 关闭");
   }
 

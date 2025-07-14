@@ -26,7 +26,7 @@ async function main() {
   formData.append("path", "/sdcard/Download/");
   formData.append(
     "file",
-    fs.createReadStream("C:\\Users\\ZhaoYu\\Downloads\\nemu-cloner.apk")
+    fs.createReadStream("C:\\Users\\XXXXX\\Downloads\\nemu-cloner.apk")
   );
   const result_path = await device.upload(formData, {
     headers: formData.getHeaders(),

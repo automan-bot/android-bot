@@ -32,9 +32,9 @@ export class BrowserWebSocket implements IWebSocket {
             this.mOnOpenListener.onopen()
         }
     }
-    private onClose(){
+    private onClose(e){
         if(this.mCloseListener){
-            this.mCloseListener.onclose()
+            this.mCloseListener.onclose(e)
         }
     }
     private onMessage(msg:MessageEvent){

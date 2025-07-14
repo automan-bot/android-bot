@@ -14,7 +14,7 @@ export interface IOnOpenlistener {
   onopen();
 }
 export interface IOnCloselistener {
-  onclose();
+  onclose(e:CloseEvent);
 }
 export interface IOnMessagelistener {
   onmessage(msg: MessageEvent);

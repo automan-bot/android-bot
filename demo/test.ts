@@ -32,10 +32,13 @@ async function main2() {
     await device.longClick(0.5, 0.5);
     await device.press(0.7, 0.7, 1000);
     await device.swipe(0.6, 0.2, 0.8, 0.8, 1000); */
-    /* mScreenControl.addScreenChangeListener(function (img) {
+    mScreenControl.addScreenChangeListener(function (img) {
       console.log(img);
     });
-    mScreenControl.startScreenStreamByPassive(); */
+    mScreenControl.addCloseListener(function (e) {
+      console.log("异常断开");
+    });
+    mScreenControl.startScreenStreamByPassive(0.5,50,50);
     /* let promise = await device.screenShot();
     console.log(promise);
     let formData = new FormData();
@@ -62,9 +65,12 @@ async function main2() {
   }
   // console.log(devices)
 }
-async function main() {
+/* async function main() {
   const list = await getDevicesList();
   const pslist = await getPackageList(list[0]);
   console.log(pslist);
 }
 main();
+ */
+
+main2();

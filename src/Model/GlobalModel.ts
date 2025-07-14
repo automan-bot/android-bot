@@ -134,6 +134,7 @@ export type NotificationChangeCallback = (
 export type ClipTextChangeCallback = (text: string) => void;
 
 export type ErrListener = (err: string) => void;
+export type CloseListener = (e: CloseEvent) => void;
 
 export interface ScreenOrentationChangeCallback {
   (width: number, height: number, rotation: number, isLandscape: boolean): void;
